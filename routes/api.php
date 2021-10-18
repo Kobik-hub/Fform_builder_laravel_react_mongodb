@@ -23,6 +23,7 @@ Route::group(['middleware' =>['auth:sanctum']], function () {
     Route::get('/',function(){
         return 'kobi';
         });
+    Route::post('/logout',[AuthController::class,'logout']);
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
