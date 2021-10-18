@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Public routes
+Route::post('/register',[AuthController::class,'register']);
 
 
-
+// Protected routes
 Route::group(['middleware' =>['auth:sanctum']], function () {
-    
+
     Route::get('/',function(){
         return 'kobi';
         });
