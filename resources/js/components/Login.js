@@ -1,22 +1,32 @@
-import React from "react";
+import React,{useContext} from "react";
 import ReactDOM from "react-dom";
 import axios from '../axios';
-
+import {UserContext} from './Index';
 function Login() {
+
+    const { setUser } = useContext(UserContext);
+
     const onLoginHandler =async (e)=>{
         try{
             e.preventDefault();
-            const user = await axios.post('/login',{
+            const {data} = await axios.post('/login',{
                 email: 'ko@gmail.com',
                 password: '12345678'
             });
-            console.log(user);
+            const user = data.user;
+            const token = data.token;
+            setUser({
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                token: token
+            })
         }catch (e){
             console.log(e);
         }
     }
 
-    return <div className={'border rounded p-5'}>
+    return <div className={'border rounded p-5 '}>
         <h1 className={'mb-4'}>Form Builder</h1>
         <form className="mb-3 ">
             <label for="exampleInputEmail1" className="form-label">Email address</label>
