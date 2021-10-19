@@ -8,7 +8,7 @@ function Nav() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Form Builder</a>
+                <a className="navbar-brand" href="/">Form Builder</a>
 
                 <div className="collapse navbar-collapse" id="navbarContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -24,7 +24,7 @@ function Nav() {
                                 </ul>
                             </li>
                         : <> <li className="p-2 ">
-                                <a className="nav-link" href='/'>Login</a>
+                                <a className="nav-link" href='/login'>Login</a>
                             </li>
                             <li className="p-2">
                             <a className="nav-link" href='/register'>Register</a>

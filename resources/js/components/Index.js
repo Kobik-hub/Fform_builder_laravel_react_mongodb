@@ -1,8 +1,10 @@
 import React,{useContext,useState} from "react";
 import ReactDOM from "react-dom";
 import Login from "./Login";
+import Register from "./Register";
 import Nav from "./Nav";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
 
 export const UserContext = React.createContext(null);
 function Index() {
@@ -12,13 +14,21 @@ function Index() {
         email: "",
         token:""
     });
+
     return(
     <UserContext.Provider value={{ user, setUser }}>
         <Nav/>
-      
+
         <BrowserRouter>
                 <Switch>
-                    <Route path="/login" component={Login} />
+                    //if user not logged in it will render login component
+                    <Route exact path="/" >
+                        {
+                            user.name.length > 0 ? <Redirect to="/" /> : <Login/>
+                        }
+                    </Route>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
                 </Switch>
     </BrowserRouter>
     </UserContext.Provider>)
