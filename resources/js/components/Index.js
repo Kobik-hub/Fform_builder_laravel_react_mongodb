@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Login from "./Login";
 
 
 function Index() {
-    return <div>
-        <button type="button" className="btn btn-secondary">Secondary</button>
 
+    return <div style={{height: '100vh'}} className='d-flex flex-row justify-content-center align-items-center'>
+        <Login/>
     </div>
 }
 
