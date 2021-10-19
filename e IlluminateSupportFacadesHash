@@ -1,0 +1,59 @@
+[33mcommit c79cc661c8913bb64549222623911edc3d65b5ab[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 02:27:03 2021 +0300
+
+    create login function in authController and crate login route
+
+[33mcommit ad46c864486fa09b5bf71e1d81256c6799e4e34d[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 02:13:20 2021 +0300
+
+    create login function in authController and crate login route
+
+[33mcommit ad6efe28f400b1a02483804a98d39469eb133f0b[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 02:04:41 2021 +0300
+
+    create logout function in authController and crate logout route
+
+[33mcommit 2d2bf332e71b6a28577310b3f52009a66c36eb2e[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 01:57:00 2021 +0300
+
+    create auth control and inside him register function that return the user info with token
+
+[33mcommit ac6a48e4b8f64db9546713b9b71d1ea3c59232f0[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 01:55:44 2021 +0300
+
+    create middleware group route for auth check with token using Sanctum
+
+[33mcommit 010ba34e900cedee945770e0a91e2f2b33239910[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 01:54:26 2021 +0300
+
+    conifg user model
+
+[33mcommit 173fef76c7dbf7806387e03b94089e0d78761f5c[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Tue Oct 19 01:51:15 2021 +0300
+
+    mongo db configuration
+
+[33mcommit 16a10cd161b325b6532f3dc58f1089141d4537b5[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Mon Oct 18 22:11:47 2021 +0300
+
+    connect mongodb, crate user model, crate protected routes group with laravel sanctum
+
+[33mcommit 08c790d482af514da76a7fe4f62b4517d2e7e53a[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Mon Oct 18 14:54:04 2021 +0300
+
+    set index.js to be the main file of the project
+
+[33mcommit ee698975001d23a1340ef4d3909ec45f9fdb0ffb[m
+Author: kobikaradi <kobisagi@gmail.com>
+Date:   Mon Oct 18 14:07:28 2021 +0300
+
+    initialize laravel project and install react
