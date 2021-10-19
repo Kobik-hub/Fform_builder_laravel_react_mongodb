@@ -19,7 +19,13 @@ class CreateFormsTable extends Migration
             $table->string('link');
             $table->string('user_id');
             $table->json('form_items');
+            $table->foreign('user_id')
+                ->references('_id')
+                ->on('users')
+                ->onDelete('cascade');
         });
+
+
     }
 
     /**
