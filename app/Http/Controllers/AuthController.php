@@ -19,7 +19,7 @@ class AuthController extends Controller
         ]);
         //Check email
         $user = User::where('email', $fields['email'])->first();
-       
+
 
         //Check password
         if(!$user || !Hash::check($fields['password'],$user->password)){
@@ -27,7 +27,7 @@ class AuthController extends Controller
                 'message'=> 'Bad creds'
             ],401);
         }
-        
+
         $token = $user->createToken('myapptoken')->plainTextToken;
         $response = [
             'user' => $user,
@@ -48,12 +48,13 @@ class AuthController extends Controller
             'email' => $fields['email'],
             'password' => bcrypt($fields['password'])
         ]);
-       
+
         $token = $user->createToken('myapptoken')->plainTextToken;
         $response = [
             'user' => $user,
             'token' => $token
         ];
+        return view('welcome',[])
         return response($response,201);
 
     }

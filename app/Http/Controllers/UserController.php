@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Form;
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class FormController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +14,7 @@ class FormController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class FormController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -35,41 +35,32 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-
-        $fields = $request->validate([
-            'name' => 'required|string',
-            'submissions'=> 'required|integer',
-            'user_id'=> 'required|string',
-            'form_items'=> 'required|array',
-        ]);
-        $form = Form::create([
-            'name' => $fields['name'],
-            'submissions' => $fields['submissions'],
-            'user_id' => $fields['user_id'],
-            'form_items' => $fields['form_items']
-        ]);
-
-        return response($form,201);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Form  $form
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return Form::findOrFail($id);
+
+    }
+    public function showForms($id)
+    {
+        $user = User::findOrFail($id);
+        return  $user->forms;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Form  $form
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Form $form)
+    public function edit(User $user)
     {
         //
     }
@@ -78,10 +69,10 @@ class FormController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Form  $form
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -89,10 +80,10 @@ class FormController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Form  $form
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Form $form)
+    public function destroy(User $user)
     {
         //
     }

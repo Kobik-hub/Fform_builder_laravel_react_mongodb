@@ -17,7 +17,7 @@ use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 // use Illuminate\Contracts\Auth\Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 //class User extends Eloquent implements Authenticatable
-class User extends Eloquent 
+class User extends Eloquent
 {
     // use HasApiTokens, HasFactory, Notifiable;
     use AuthenticatableTrait;
@@ -55,4 +55,8 @@ class User extends Eloquent
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function forms()
+    {
+        return $this->hasMany(Form::class);
+    }
 }

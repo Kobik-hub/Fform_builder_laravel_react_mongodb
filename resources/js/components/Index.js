@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+
 function Index() {
-    return <h1>start</h1>;
+    return <div>
+        <button type="button" className="btn btn-secondary">Secondary</button>
+
+    </div>
 }
 
 export default Index;
