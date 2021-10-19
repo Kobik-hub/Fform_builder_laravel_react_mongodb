@@ -1,8 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import axios from '../axios';
 
 function Login() {
+    const onLoginHandler =async (e)=>{
+        try{
+            e.preventDefault();
+            const user = await axios.post('/login',{
+                email: 'ko@gmail.com',
+                password: '12345678'
+            });
+            console.log(user);
+        }catch (e){
+            console.log(e);
+        }
+    }
+
     return <div className={'border rounded p-5'}>
         <h1 className={'mb-4'}>Form Builder</h1>
         <form className="mb-3 ">
@@ -15,7 +28,7 @@ function Login() {
             <input type="password" className="form-control" id="exampleInputPassword1"/>
         </div>
             <div className='col-md-12 text-center'>
-        <button type="submit" className="btn btn-dark align-center">Submit</button>
+        <button onClick={(e)=>onLoginHandler(e)} type="submit" className="btn btn-dark align-center">Submit</button>
             </div>
     </form>
     </div>
