@@ -16,7 +16,6 @@ class CreateFormsTable extends Migration
         Schema::create('forms', function (Blueprint $table) {
             $table->string('name');
             $table->int('submissions');
-            $table->string('link');
             $table->string('user_id');
             $table->json('form_items');
             $table->foreign('user_id')

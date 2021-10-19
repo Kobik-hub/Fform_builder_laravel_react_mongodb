@@ -12,4 +12,11 @@ class Form extends Eloquent
     protected $casts = [
         'form_items' => 'array'
     ];
+
+    protected $fillable = [
+        'name',
+        'submissions',
+        'user_id',
+        'form_items'
+    ];
 }
