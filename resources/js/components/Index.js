@@ -2,6 +2,7 @@ import React,{useContext,useState} from "react";
 import ReactDOM from "react-dom";
 import Login from "./Login";
 import Nav from "./Nav";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 export const UserContext = React.createContext(null);
 function Index() {
@@ -14,13 +15,12 @@ function Index() {
     return(
     <UserContext.Provider value={{ user, setUser }}>
         <Nav/>
-        {
-            user.name.length > 0 ?
-                <h1>kobi</h1>:
-            <div style={{height: '90vh'}} className='d-flex flex-row justify-content-center align-items-center'>
-                <Login/>
-            </div>
-        }
+      
+        <BrowserRouter>
+                <Switch>
+                    <Route path="/login" component={Login} />
+                </Switch>
+    </BrowserRouter>
     </UserContext.Provider>)
 }
 

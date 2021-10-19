@@ -26,7 +26,9 @@ function Login() {
         }
     }
 
-    return <div className={'border rounded p-5 '}>
+    return (
+        <div style={{height: '90vh'}} className='d-flex flex-row justify-content-center align-items-center'>
+        <div className={'border rounded p-5 '}>
         <h1 className={'mb-4 text-center'}>Login</h1>
         <form className="mb-3 ">
             <label for="exampleInputEmail1" className="form-label">Email address</label>
@@ -42,6 +44,7 @@ function Login() {
             </div>
     </form>
     </div>
+        </div>)
 }
 
 export default Login;
