@@ -34,7 +34,7 @@ const FormSubmit = ({ match })=>{
             form_id: formId,
             from_data: formData.form_items
         })
-        history.push(`/forms/${formId}`);
+        history.push('/FormSuccess');
     }
     return (
         <div className={'container  mt-3 text-center'}>
@@ -46,7 +46,7 @@ const FormSubmit = ({ match })=>{
                             return(
                                <div className={'m-2'}>
                                    <label htmlFor={input.name}>{input.name}</label>
-                                   <input type={input.type} className="form-control" id={input.name}
+                                   <input required type={input.type} className="form-control" id={input.name}
                                    />
                                </div>
                             )

@@ -7,6 +7,7 @@ import Forms from "./Forms";
 import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
 import FormBuilder from "./FormBuilder";
 import FormSubmit from "./FormSubmit";
+import FormSubmitSuccess from "./FormSubmitSuccess";
 
 export const UserContext = React.createContext(null);
 function Index() {
@@ -34,7 +35,7 @@ function Index() {
                             user.name.length > 0 ? <Redirect to="/Forms" /> : <Login/>
                         }
                     </Route>
-
+                    <Route exact path="/FormSuccess" component={FormSubmitSuccess} />
                     <Route exact path="/FormBuilder" component={FormBuilder} />
                     <Route exact path="/forms/:id" component={FormSubmit} />
                     <Route exact path="/Forms" component={Forms} />
