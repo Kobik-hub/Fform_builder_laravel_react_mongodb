@@ -11,12 +11,12 @@ export const UserContext = React.createContext(null);
 function Index() {
     const [user, setUser] = useState({
         name: "",
-        id: "",
+        _id: "",
         email: "",
         token:""
     });
 
-    if(localStorage.getItem('user') && user.id < 1){
+    if(localStorage.getItem('user') && user._id < 1){
         const userFromLocalStorage = localStorage.getItem('user');
         setUser(JSON.parse(userFromLocalStorage));
     }

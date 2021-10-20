@@ -9,7 +9,7 @@ function Forms() {
 
     useEffect(() => {
         const fetchForms = async () => {
-            const userId = user.id;
+            const userId = user._id;
             console.log(userId);
             const {data}  = await axios.get(`users/forms/${userId}`);
             console.log(data);

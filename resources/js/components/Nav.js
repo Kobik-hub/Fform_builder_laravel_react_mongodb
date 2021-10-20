@@ -24,7 +24,10 @@ function Nav() {
                                     <li><a onClick={()=> {
                                         localStorage.removeItem('user');
                                     }} className="dropdown-item" href="/">Logout</a></li>
+                                    <li><a className="dropdown-item" href="/forms">Your forms</a></li>
+                                    <li><a className="dropdown-item" href="/formBuilder">Form builder</a></li>
                                 </ul>
+
                             </li>
                         : <> <li className="p-2 ">
                                 <a className="nav-link" href='/login'>Login</a>

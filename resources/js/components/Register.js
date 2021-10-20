@@ -16,7 +16,7 @@ function Register() {
             const user = data.user;
             const token = data.token;
             setUser({
-                id: user._id,
+                _id: user._id,
                 name: user.name,
                 email: user.email,
                 token: token
