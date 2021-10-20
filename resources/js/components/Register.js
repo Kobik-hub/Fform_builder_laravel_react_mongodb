@@ -6,18 +6,20 @@ import { useHistory } from "react-router-dom";
 function Register() {
     const { user, setUser } = useContext(UserContext);
     const [userInfoRegister, setUserInfoRegister] = useState({
+        ////Store the user input
         name: "",
         email: "",
         password: "",
         password_confirmation: "",
     });
     const history = useHistory();
-    const onLoginHandler = async (e) => {
+    const onRegisterHandler = async (e) => {
         try {
             e.preventDefault();
             const { data } = await axios.post("/register", userInfoRegister);
             const user = data.user;
             const token = data.token;
+            console.log("fff");
             setUser({
                 _id: user._id,
                 name: user.name,
@@ -27,7 +29,7 @@ function Register() {
             localStorage.setItem("user", JSON.stringify(user));
             history.push("/");
         } catch (e) {
-            console.log(e);
+            alert("email already exist");
         }
     };
 
@@ -39,7 +41,7 @@ function Register() {
             <div className={"border rounded p-5 "}>
                 <h1 className={"mb-4 text-center"}>Register</h1>
                 <form className="mb-3 ">
-                    <label htmlFor="exampleInputEmail1" className="form-label">
+                    <label htmlFor="name" className="form-label">
                         Name
                     </label>
                     <input
@@ -72,10 +74,7 @@ function Register() {
                     </div>
 
                     <div className="mb-3">
-                        <label
-                            for="exampleInputPassword1"
-                            className="form-label"
-                        >
+                        <label for="password" className="form-label">
                             Password
                         </label>
                         <input
@@ -87,11 +86,11 @@ function Register() {
                             }
                             type="password"
                             className="form-control"
-                            id="exampleInputPassword1"
+                            id="password"
                         />
 
                         <label
-                            htmlFor="exampleInputPassword1"
+                            htmlFor="PasswordConfirmation"
                             className="form-label"
                         >
                             Password confirmation
@@ -105,13 +104,12 @@ function Register() {
                             }
                             type="password"
                             className="form-control"
-                            id="exampleInputPassword1"
+                            id="PasswordConfirmation"
                         />
                     </div>
                     <div className="col-md-12 text-center">
                         <button
-                            onClick={(e) => onLoginHandler(e)}
-                            type="submit"
+                            onClick={(e) => onRegisterHandler(e)}
                             className="btn btn-dark align-center"
                         >
                             Register
