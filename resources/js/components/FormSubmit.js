@@ -29,7 +29,7 @@ const FormSubmit = ({ match })=>{
         formData.form_items.map((input,index)=>{
             userFormInput[input.name] = e.target[index].value;
         });
-        
+
         console.log(userFormInput);
     }
     return (
