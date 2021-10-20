@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Form_submissions extends Model
+class Form_submissions extends Eloquent
 {
     use HasFactory;
     protected $casts = [

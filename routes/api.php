@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormSubmissionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\FormController;
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::get('/forms/{id}',[FormController::class,'show']);
+Route::post('/forms/{id}',[FormSubmissionsController::class,'store']);
 
 Route::get('/users/forms/{id}',[\App\Http\Controllers\UserController::class,'showForms']);
 Route::post('/forms/create',[FormController::class,'store']);
