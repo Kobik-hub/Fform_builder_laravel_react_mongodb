@@ -1,7 +1,7 @@
 
 # Form builder
 
-A brief description of what this project does and who it's for
+simple web application that allows the user to create a custom form to which anyone can submit answers.
 
 
 ## Tech Stack
