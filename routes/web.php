@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/{route}', function () {
     return view('welcome');
 });
+Route::get('/forms/{id}', function () {
+    return view('welcome');
+});
 
 
 //Auth::routes();
