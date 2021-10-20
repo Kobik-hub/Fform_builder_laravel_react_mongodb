@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 
 import axios from '../axios';
-
+import { useHistory } from "react-router-dom";
 const FormSubmit = ({ match })=>{
 
     const [formData,setFormData] = useState({
@@ -9,7 +9,7 @@ const FormSubmit = ({ match })=>{
         form_items: []
     });
     let formId = match.params.id;
-    // path = forms
+    const history = useHistory();
 
     useEffect(() => {
 
@@ -23,14 +23,18 @@ const FormSubmit = ({ match })=>{
     }, []);
 
 
-    const formSubmitHandler = (e) =>{
+    const formSubmitHandler = async (e) =>{
         e.preventDefault();
         let userFormInput = {}
         formData.form_items.map((input,index)=>{
             userFormInput[input.name] = e.target[index].value;
         });
-
-        console.log(userFormInput);
+        console.log(formData.form_items);
+        const data = await axios.post(`forms/${formId}`,{
+            form_id: formId,
+            from_data: formData.form_items
+        })
+        history.push(`/forms/${formId}`);
     }
     return (
         <div className={'container  mt-3 text-center'}>

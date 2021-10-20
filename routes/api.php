@@ -24,11 +24,12 @@ use App\Http\Controllers\FormController;
 // Public routes
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
+Route::post('/forms/create',[FormController::class,'store']);
 Route::get('/forms/{id}',[FormController::class,'show']);
 Route::post('/forms/{id}',[FormSubmissionsController::class,'store']);
 
 Route::get('/users/forms/{id}',[\App\Http\Controllers\UserController::class,'showForms']);
-Route::post('/forms/create',[FormController::class,'store']);
+
 // Protected routes
 Route::group(['middleware' =>['auth:sanctum']], function () {
 

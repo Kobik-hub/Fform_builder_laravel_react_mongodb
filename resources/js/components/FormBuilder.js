@@ -8,7 +8,7 @@ function FormBuilder() {
     const { user } = useContext(UserContext);
     const [formInputs,setFormInputs] = useState([]);
     const [formName,setFormName] = useState('');
-    const [input,setInput] = useState({name:"",type:""})
+    const [input,setInput] = useState({name:"",type:"text"})
     const [isAddInputActive,setIsAddInputActive] = useState(false);
     const history = useHistory();
     const addInputHandler = (e)=>{
@@ -21,7 +21,7 @@ function FormBuilder() {
        console.log(formInputs);
        const form =await axios.post('/forms/create',{
            name : formName,
-           user_id: user_id,
+           user_id: user._id,
            form_items: formInputs
        });
        history.push("/");
