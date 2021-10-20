@@ -25,10 +25,10 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::get('/forms/{id}',[FormController::class,'show']);
 
-
+Route::get('/users/forms/{id}',[\App\Http\Controllers\UserController::class,'showForms']);
 // Protected routes
 Route::group(['middleware' =>['auth:sanctum']], function () {
-    Route::get('/users/forms/{id}',[\App\Http\Controllers\UserController::class,'showForms']);
+
     Route::post('/forms/create',[FormController::class,'store']);
     Route::get('/forms/',[FormController::class,'index']);
     Route::post('/logout',[AuthController::class,'logout']);

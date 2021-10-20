@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Nav from "./Nav";
-
+import Forms from "./Forms";
 import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
 
 export const UserContext = React.createContext(null);
@@ -24,11 +24,13 @@ function Index() {
                     //if user not logged in it will render login component
                     <Route exact path="/" >
                         {
-                            user.name.length > 0 ? <Redirect to="/" /> : <Login/>
+                            user.name.length > 0 ? <Redirect to="/Forms" /> : <Login/>
                         }
                     </Route>
+                    <Route exact path="/Forms" component={Forms} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
+
                 </Switch>
     </BrowserRouter>
     </UserContext.Provider>)
