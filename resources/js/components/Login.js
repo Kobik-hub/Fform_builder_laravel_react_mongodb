@@ -24,6 +24,7 @@ function Login() {
                 email: user.email,
                 token: token
             });
+            localStorage.setItem("user", JSON.stringify(user));
             history.push("/");
         }catch (e){
             console.log(e);

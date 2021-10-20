@@ -5,6 +5,7 @@ import {UserContext} from './Index';
 
 function Nav() {
     const { user } = useContext(UserContext);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
             <div className="container-fluid">
@@ -20,7 +21,9 @@ function Nav() {
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false"> {user.name} </a>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="#">Logout</a></li>
+                                    <li><a onClick={()=> {
+                                        localStorage.removeItem('user');
+                                    }} className="dropdown-item" href="/">Logout</a></li>
                                 </ul>
                             </li>
                         : <> <li className="p-2 ">

@@ -26,10 +26,11 @@ Route::post('/login',[AuthController::class,'login']);
 Route::get('/forms/{id}',[FormController::class,'show']);
 
 Route::get('/users/forms/{id}',[\App\Http\Controllers\UserController::class,'showForms']);
+Route::post('/forms/create',[FormController::class,'store']);
 // Protected routes
 Route::group(['middleware' =>['auth:sanctum']], function () {
 
-    Route::post('/forms/create',[FormController::class,'store']);
+
     Route::get('/forms/',[FormController::class,'index']);
     Route::post('/logout',[AuthController::class,'logout']);
 });

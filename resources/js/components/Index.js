@@ -5,6 +5,7 @@ import Register from "./Register";
 import Nav from "./Nav";
 import Forms from "./Forms";
 import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
+import FormBuilder from "./FormBuilder";
 
 export const UserContext = React.createContext(null);
 function Index() {
@@ -14,6 +15,11 @@ function Index() {
         email: "",
         token:""
     });
+
+    if(localStorage.getItem('user') && user.id < 1){
+        const userFromLocalStorage = localStorage.getItem('user');
+        setUser(JSON.parse(userFromLocalStorage));
+    }
 
     return(
     <UserContext.Provider value={{ user, setUser }}>
@@ -27,6 +33,7 @@ function Index() {
                             user.name.length > 0 ? <Redirect to="/Forms" /> : <Login/>
                         }
                     </Route>
+                    <Route exact path="/FormBuilder" component={FormBuilder} />
                     <Route exact path="/Forms" component={Forms} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />

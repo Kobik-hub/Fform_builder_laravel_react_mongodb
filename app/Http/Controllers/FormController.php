@@ -38,13 +38,12 @@ class FormController extends Controller
 
         $fields = $request->validate([
             'name' => 'required|string',
-            'submissions'=> 'required|integer',
             'user_id'=> 'required|string',
             'form_items'=> 'required|array',
         ]);
         $form = Form::create([
             'name' => $fields['name'],
-            'submissions' => $fields['submissions'],
+            'submissions' => 0,
             'user_id' => $fields['user_id'],
             'form_items' => $fields['form_items']
         ]);
